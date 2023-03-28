@@ -7,7 +7,11 @@ const socketIo = require('socket.io');
 const app = express();
 
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+    cors: {
+        origin: "http://localhost:8080",
+    }
+});
 const socketMiddleware = require('./server/middlewares/socket')
 socketMiddleware(io);
 
