@@ -15,11 +15,13 @@ const io = socketIo(server, {
 const socketMiddleware = require('./server/middlewares/socket')
 socketMiddleware(io);
 
-var corsOptions = {
-    origin: 'http://localhost:8081'
-};
+// var corsOptions = {
+//     origin: 'http://localhost:8081'
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(cors());
 
 app.use(express.json());
 
