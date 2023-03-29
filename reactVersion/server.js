@@ -9,11 +9,13 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "http://localhost:8080",
+        origin: "http://localhost:3000",
     }
 });
 const socketMiddleware = require('./server/middlewares/socket')
 socketMiddleware(io);
+
+server.listen(3000);
 
 // var corsOptions = {
 //     origin: 'http://localhost:8081'

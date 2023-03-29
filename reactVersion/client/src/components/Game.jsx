@@ -14,29 +14,13 @@ const Game = () => {
   const createNewGame = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    console.log("I am here ", value)
+    
+    socket.timeout(5000).emit('draw', value, () => { setIsLoading(false)})
 
-    socket.timeout(5000).emit('create-something', value, () => { setIsLoading(false)})
   }
 
-  // useEffect(() => {
-  //   const newSocket = io(process.env.SOCKET_SERVER_URL);
-  //   setSocket(newSocket);
-  //   console.log(newSocket)
-
-  //   newSocket.on('connect', () => {
-  //     console.log('Connected to Socket.io Server');
-  //   });
-
-  //   return () => {
-  //     newSocket.disconnect();
-  //   };
-  // }, []);
-
-  // const createNewGame = (event) => {
-  //   event.preventDefault();
-  //   console.log('New Game Button Clicked');
-  //   // socket.emit('join', { gameId: '1234', playerName: 'Alice' });
-  // };
+  
 
   return (
     <div>

@@ -8,6 +8,7 @@ import {socket} from './socket';
 import { ConnectionManager, ConnectionState, Events } from './components/socketConnection';
 
 import Game from './components/Game';
+import Deck from './components/Deck';
 
 function App() {
 // ============Sockets============
@@ -23,28 +24,32 @@ useEffect(() => {
     setIsConnected(false);
   }
 
-  const onGameEvent = (value) => {
+  const onGameEvents = (value) => {
     setGameEvents(previous => [...previous, value]);
   }
 
   socket.on('connect', onConnect);
   socket.on('disconnect', onDisconnect);
-  socket.on('game', onGameEvent);
+  socket.on('game', gameEvents);
+
   return () => {
     socket.off('connect', onConnect);
     socket.off('disconnect', onDisconnect);
-    socket.off('game', onGameEvent);
+    socket.off('game', onGameEvents);
   };
+
 }, [gameEvents]);
 
   return (
     <div>
       <ConnectionState isConnected={ isConnected } />
       <Routes>
-        <Route path="/" element={ <Game Events={ gameEvents }/> } />
+        {/* <Route path="/" element={ <Game gameEvents={gameEvents}/>} /> */}
 
+        <Route path='/' element= { <Deck />} />
       </Routes>
       <ConnectionManager />
+
     </div>
   );
 }
