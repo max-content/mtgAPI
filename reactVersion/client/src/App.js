@@ -8,12 +8,16 @@ import {socket} from './socket';
 import { ConnectionManager, ConnectionState, Events } from './components/socketConnection';
 
 import Game from './components/Game';
-import Deck from './components/Deck';
+// import Deck from './components/Deck';
+import Deck from './components/og/Deck';
+import ColorDeck from './components/og/ColorDeck';
+// import CreatureCardList from './components/Deck';
 
 function App() {
 // ============Sockets============
 const [isConnected, setIsConnected] = useState(socket.connected);
 const [gameEvents, setGameEvents] = useState([]);
+
 
 useEffect(() => {
   const onConnect = () => {
@@ -40,13 +44,18 @@ useEffect(() => {
 
 }, [gameEvents]);
 
+
   return (
     <div>
       <ConnectionState isConnected={ isConnected } />
+      <ColorDeck />
       <Routes>
         {/* <Route path="/" element={ <Game gameEvents={gameEvents}/>} /> */}
 
-        <Route path='/' element= { <Deck />} />
+        {/* <Route path='/' element= { <CreatureCard />} />
+        <Route path='/deck' element={<Deck  />}/> */}
+        <Route path='/' element={<Deck />} />
+
       </Routes>
       <ConnectionManager />
 

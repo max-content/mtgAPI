@@ -10,6 +10,8 @@ const Game = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [currentGame, setCurrentGame] = useState();
+
+  
   
   const createNewGame = (e) => {
     e.preventDefault();
