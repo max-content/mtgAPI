@@ -1,30 +1,53 @@
-import React, {useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 
-const CreatureCard = ( { card }) => {
-  
-  return (
-    <div>
-      <h1> {card.name} {card.mana_cost}</h1>
-      <img src={card.image_uris.art_crop}/>
-      <h3> {card.type_line} </h3>
-      <p> {card.oracle_text} </p>
-      <p> {card.flavor_text} </p>
-      <h4> {card.artist} </h4>
-      <h3> {card.power}/{card.toughness} </h3>
+import { CardContainer, ContentContainer, TextBar, ImageWrapper, Stats, Oracle, Flavor, Image, Artist} from './styles/CreatureCardStyle';
 
-    </div>
+const CreatureCard = ( { card }) => {
+
+  // const [cardColorBackground, setCardColorBackground] = useState('');
+  // const cardBackgroundStyle = () => {
+  //   const colors = card.colors;
+  //   const colorPie = [{'W':'white'}, {'U': 'blue'}, {'B': 'black'}, {'R': 'red'}, {'G': 'green'}];
+  //   for(const item in colorPie) {
+  //     if(colors == item.key) {
+  //       console.log(item.value)
+  //       setCardColorBackground = item;
+  //       console.log(`I AM HERE: ${cardColorBackground}`)
+  //       return `--background-style: ${cardColorBackground}`
+  //     }
+  //   }
+  // }
+
+  return (
+    // <CardContainer style={{ cardBackgroundStyle }}>
+      <CardContainer>
+      <ContentContainer>
+        <TextBar>
+          {card.name} {card.mana_cost}
+        </TextBar>
+        <ImageWrapper>
+          <Image src={card.image_uris.art_crop} alt={`${card.name} ${card.mana_cost}, ${card.type_line}, ${card.artist}`}/> 
+        </ImageWrapper>
+        <TextBar> {card.type_line} </TextBar>
+        <Oracle> {card.oracle_text} </Oracle>
+        <Flavor> {card.flavor_text} </Flavor>
+        <Artist> {card.artist} </Artist>
+        <Stats> {card.power}/{card.toughness} </Stats>
+      </ContentContainer>
+    </CardContainer>
   )
 }
 
 CreatureCard.propTypes = {
   card: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    type_line: PropTypes.string.isRequired,
     image_uris: PropTypes.shape({
       small: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
     oracle_text: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
 };
 
 
