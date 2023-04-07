@@ -15,7 +15,7 @@ const io = socketIo(server, {
 const socketMiddleware = require('./server/middlewares/socket')
 socketMiddleware(io);
 
-server.listen(3000);
+server.listen(4000);
 
 // var corsOptions = {
 //     origin: 'http://localhost:8081'
