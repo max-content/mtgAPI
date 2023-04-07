@@ -48,13 +48,12 @@ useEffect(() => {
   return (
     <div>
       <ConnectionState isConnected={ isConnected } />
-      <ColorDeck />
       <Routes>
         {/* <Route path="/" element={ <Game gameEvents={gameEvents}/>} /> */}
 
         {/* <Route path='/' element= { <CreatureCard />} />
         <Route path='/deck' element={<Deck  />}/> */}
-        <Route path='/' element={<Deck />} />
+        <Route path='/' element={<Game />} />
 
       </Routes>
       <ConnectionManager />
