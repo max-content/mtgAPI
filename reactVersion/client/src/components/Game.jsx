@@ -14,7 +14,9 @@ const Game = () => {
   const [value, setValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const [currentGame, setCurrentGame] = useState();
+  const [currentGame, setCurrentGame] = useState({
+    
+  });
 
   const [creatureDeck, setCreatureDeck] = useState([]);
   

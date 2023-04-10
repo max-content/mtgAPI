@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Button } from './styles/ButtonStyle'
 
 const DeckGenButton = ({color, setCreatureDeck}) => {
 
@@ -26,7 +27,7 @@ const DeckGenButton = ({color, setCreatureDeck}) => {
 
   return (
     <div>
-        <button type='submit' onClick={createCreatureDeck}> Creature Deck </button>
+        <Button type='submit' onClick={createCreatureDeck}> Creature Deck </Button>
     </div>
   )
 }

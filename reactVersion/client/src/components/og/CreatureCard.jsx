@@ -33,8 +33,8 @@ const CreatureCard = ( { card }) => {
         <Oracle> {card.oracle_text} </Oracle>
         <Flavor> {card.flavor_text} </Flavor>
         <Artist> {card.artist} </Artist>
-        <Stats> {card.power}/{card.toughness} </Stats>
       </ContentContainer>
+        <Stats> {card.power}/{card.toughness} </Stats>
     </CardContainer>
   )
 }
