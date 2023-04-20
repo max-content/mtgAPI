@@ -12,7 +12,7 @@ const io = socketIo(server, {
         origin: "http://localhost:3000",
     }
 });
-const socketMiddleware = require('./server/middlewares/socket')
+const socketMiddleware = require('./server/socket/socket');
 socketMiddleware(io);
 
 server.listen(4000);

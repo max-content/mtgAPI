@@ -1,10 +1,10 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-  Routes,
-  Route
+    Routes,
+    Route
 } from 'react-router-dom';
 
-import {socket} from './socket';
+import { socket } from './socket';
 import { ConnectionManager, ConnectionState, Events } from './components/socketConnection';
 
 import Game from './components/Game';
@@ -14,52 +14,79 @@ import ColorDeck from './components/og/ColorDeck';
 // import CreatureCardList from './components/Deck';
 
 function App() {
-// ============Sockets============
-const [isConnected, setIsConnected] = useState(socket.connected);
-const [gameEvents, setGameEvents] = useState([]);
+    // ============Sockets============
+    const [isConnected, setIsConnected] = useState(socket.connected);
+    const [gameEvents, setGameEvents] = useState([]);
+    const [playerOneID, setPlayerOneID] = useState('');
+    const [playerTwoID, setPlayerTwoID] = useState('')
+
+    useEffect(() => {
+        const onConnect = () => {
+            setIsConnected(true);
+            playerConnection();
+        }
+
+        const onDisconnect = () => {
+            setIsConnected(false);
+            playerDisconnection();
+        }
+
+        const onGameEvents = (value) => {
+            setGameEvents(previous => [...previous, value]);
+        }
+
+        const playerConnection = () => {
+            if (playerOneID === '' && playerTwoID === '') {
+                setPlayerOneID(socket.id);
+                console.log(`Player 1: ${socket.id}`)
+            } else {
+                setPlayerTwoID(socket.id);
+                console.log(`Player 2: ${socket.id}`)
+            }
+        }
+
+        const playerDisconnection = () => {
+            if (socket.emit('playerOne')) {
+                setPlayerOneID('');
+            }
+            if (socket.emit('playerTwo')) {
+                setPlayerTwoID('');
+            }
+        }
 
 
-useEffect(() => {
-  const onConnect = () => {
-    setIsConnected(true);
-  }
+        socket.on('connect', onConnect);
+        socket.on('disconnect', onDisconnect);
+        socket.on('game', onGameEvents);
+        socket.on('playerOne', playerConnection);
+        socket.on('playerTwo', playerConnection)
 
-  const onDisconnect = () => {
-    setIsConnected(false);
-  }
+        return () => {
+            socket.off('connect', onConnect);
+            socket.off('disconnect', onDisconnect);
+            socket.off('game', onGameEvents);
+            socket.off('playerOne', playerDisconnection);
+            socket.off('playerTwo', playerDisconnection);
+        };
 
-  const onGameEvents = (value) => {
-    setGameEvents(previous => [...previous, value]);
-  }
-
-  socket.on('connect', onConnect);
-  socket.on('disconnect', onDisconnect);
-  socket.on('game', gameEvents);
-
-  return () => {
-    socket.off('connect', onConnect);
-    socket.off('disconnect', onDisconnect);
-    socket.off('game', onGameEvents);
-  };
-
-}, [gameEvents]);
+    }, [gameEvents]);
 
 
-  return (
-    <div>
-      <ConnectionState isConnected={ isConnected } />
-      <Routes>
-        {/* <Route path="/" element={ <Game gameEvents={gameEvents}/>} /> */}
+    return (
+        <div>
+            <ConnectionState isConnected={isConnected} />
+            <Routes>
+                {/* <Route path="/" element={ <Game gameEvents={gameEvents}/>} /> */}
 
-        {/* <Route path='/' element= { <CreatureCard />} />
+                {/* <Route path='/' element= { <CreatureCard />} />
         <Route path='/deck' element={<Deck  />}/> */}
-        <Route path='/' element={<Game />} />
+                <Route path='/' element={<Game />} />
 
-      </Routes>
-      <ConnectionManager />
+            </Routes>
+            <ConnectionManager />
 
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
