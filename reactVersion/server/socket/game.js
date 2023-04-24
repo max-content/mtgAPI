@@ -1,5 +1,5 @@
-// // import socket io from socket...?
-// // this is where we want to create the game on the server so that we can communicate between players
+// // // import socket io from socket...?
+// // // this is where we want to create the game on the server so that we can communicate between players
 
 // const TOTAL_LIFE = 20;
 

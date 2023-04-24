@@ -17,12 +17,6 @@ socketMiddleware(io);
 
 server.listen(4000);
 
-// var corsOptions = {
-//     origin: 'http://localhost:8081'
-// };
-
-// app.use(cors(corsOptions));
-
 app.use(cors());
 
 app.use(express.json());

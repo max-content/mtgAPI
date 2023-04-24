@@ -8,10 +8,6 @@ import { socket } from './socket';
 import { ConnectionManager, ConnectionState, Events } from './components/socketConnection';
 
 import Game from './components/Game';
-// import Deck from './components/Deck';
-import Deck from './components/og/Deck';
-import ColorDeck from './components/og/ColorDeck';
-// import CreatureCardList from './components/Deck';
 
 function App() {
     // ============Sockets============
@@ -73,13 +69,10 @@ function App() {
 
 
     return (
-        <div>
+        <div style={{ margin: '120px'}}>
             <ConnectionState isConnected={isConnected} />
             <Routes>
-                {/* <Route path="/" element={ <Game gameEvents={gameEvents}/>} /> */}
 
-                {/* <Route path='/' element= { <CreatureCard />} />
-        <Route path='/deck' element={<Deck  />}/> */}
                 <Route path='/' element={<Game />} />
 
             </Routes>
