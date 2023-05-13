@@ -1,11 +1,13 @@
-import React from 'react'
+import React  from 'react'
 import { socket } from '../../socket';
+import {Button } from '../og/styles/ButtonStyle';
 
 const ConnectionManager = () => {
-    
+
     const connect = () => {
         socket.connect();
         console.log(`connect button clicked`)
+        
     }
 
     const disconnect = () => {
@@ -15,8 +17,8 @@ const ConnectionManager = () => {
   
   return (
     <>
-        <button onClick={connect}> Connect </button>
-        <button onClick={disconnect}> Disconnect </button>
+        <Button onClick={connect}> Connect </Button>
+        <Button onClick={disconnect}> Disconnect </Button>
     </>
   )
 }

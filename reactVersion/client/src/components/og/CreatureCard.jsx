@@ -19,21 +19,23 @@ const CreatureCard = ( { card }) => {
   //   }
   // }
 
+  // add switch statement
+
   return (
     // <CardContainer style={{ cardBackgroundStyle }}>
       <CardContainer>
-      <ContentContainer>
-        <TextBar>
-          {card.name} {card.mana_cost}
-        </TextBar>
-        <ImageWrapper>
-          <Image src={card.image_uris.art_crop} alt={`${card.name} ${card.mana_cost}, ${card.type_line}, ${card.artist}`}/> 
-        </ImageWrapper>
-        <TextBar> {card.type_line} </TextBar>
-        <Oracle> {card.oracle_text} </Oracle>
-        <Flavor> {card.flavor_text} </Flavor>
-        <Artist> {card.artist} </Artist>
-      </ContentContainer>
+        <ContentContainer>
+          <TextBar>
+            {card.name} {card.mana_cost}
+          </TextBar>
+          <ImageWrapper>
+            <Image src={card.image_uris.art_crop} alt={`${card.name} ${card.mana_cost}, ${card.type_line}, ${card.artist}`}/> 
+          </ImageWrapper>
+          <TextBar> {card.type_line} </TextBar>
+          <Oracle> {card.oracle_text} </Oracle>
+          <Flavor> {card.flavor_text} </Flavor>
+          <Artist> {card.artist} </Artist>
+        </ContentContainer>
         <Stats> {card.power}/{card.toughness} </Stats>
     </CardContainer>
   )
@@ -46,7 +48,8 @@ CreatureCard.propTypes = {
     image_uris: PropTypes.shape({
       small: PropTypes.string.isRequired,
     }),
-    oracle_text: PropTypes.string.isRequired,
+    oracle_text: PropTypes.string,
+    flavor_text: PropTypes.string
   }),
 };
 

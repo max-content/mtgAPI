@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Events = ({events}) => {
+const Events = ({gameEvents}) => {
   return (
     <div>
         <ul>
         {
-            events.map((e, idx) => 
+            gameEvents.map((e, idx) => 
                 <li key= {idx}> {e} </li>)
         }
         </ul>

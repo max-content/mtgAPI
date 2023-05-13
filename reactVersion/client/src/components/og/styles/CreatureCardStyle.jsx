@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
     border: 15px solid #d4b864;
     background-color: #d4b864;
     border-bottom: none;
-    border-radius: 5% 5% 3% 3%;
+    border-radius: 3% 3% 3% 3%;
 `
 
 export const ContentContainer = styled.div`

@@ -12,16 +12,10 @@ const io = socketIo(server, {
         origin: "http://localhost:3000",
     }
 });
-const socketMiddleware = require('./server/middlewares/socket')
+const socketMiddleware = require('./server/socket/socket');
 socketMiddleware(io);
 
 server.listen(4000);
-
-// var corsOptions = {
-//     origin: 'http://localhost:8081'
-// };
-
-// app.use(cors(corsOptions));
 
 app.use(cors());
 
