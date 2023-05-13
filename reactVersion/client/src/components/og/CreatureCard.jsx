@@ -48,7 +48,8 @@ CreatureCard.propTypes = {
     image_uris: PropTypes.shape({
       small: PropTypes.string.isRequired,
     }),
-    oracle_text: PropTypes.string.isRequired,
+    oracle_text: PropTypes.string,
+    flavor_text: PropTypes.string
   }),
 };
 

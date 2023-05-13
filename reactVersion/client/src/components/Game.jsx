@@ -1,45 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import { socket } from "../socket";
+import { SocketContext } from "./socketConnection";
+
 import ColorDeck from "./og/ColorDeck";
 import Deck from "./og/Deck";
-import { Events } from "./socketConnection";
 
-// import io from 'socket.io-client';
-// import dotenv from 'dotenv';
-// dotenv.config();
 
 const Game = ({ gameEvents }) => {
-    // const colorPie = [ 'W', 'U', 'B', 'R', 'G' ];
 
     const [color, setColor] = useState("W");
-    const [value, setValue] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
-    // const [gameState, setGameState] = useState({
-    //     player: {
-    //         id: socket.id,
-    //         deck: {
-    //             color: color,
-    //         },
-    //         life: 20,
-    //     },
-    // });
-
     const [creatureDeck, setCreatureDeck] = useState([]);
+    
+    const { socket, room, p1, p2} = useContext(SocketContext)
+
+
+    useEffect(() => {
+        
+        return () => {
+            cleanup
+        }
+    }, [input]);
 
     const createNewGame = (e) => {
-      e.preventDefault();
-      setIsLoading(true);
-      console.log("I am here ", value)
-
-      socket.timeout(5000).emit('draw', value, () => { setIsLoading(false)})
+        e.preventDefault();
+        setIsLoading(true);
+        
 
     }
 
     return (
         <div>
             <form onSubmit={createNewGame}>
-                <input onChange={(e) => setValue(e.target.value)} />
                 <input type="submit" disabled={isLoading} value="New Game" />
             </form>
             <ColorDeck

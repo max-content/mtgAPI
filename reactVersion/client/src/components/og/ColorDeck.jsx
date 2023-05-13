@@ -14,13 +14,11 @@ const ColorDeck = ({setColor, color, setCreatureDeck}) => {
         box-shadow: 3px 2px 4px 1px #28a40f;
     `
     
-    const [colorState, setColorState] = useState('W');
+    // const [colorState, setColorState] = useState('W');
 
     const submitHandler = (e) => {
         e.preventDefault();
-        setColor(colorState);
-        console.log('HELLO FRIEND')
-        console.log('colorState: ' + colorState)
+        // console.log('colorState: ' + colorState)
         console.log('color: ' + color)
     }
     
@@ -29,7 +27,7 @@ const ColorDeck = ({setColor, color, setCreatureDeck}) => {
         {/* Choose your color dropdown button */}
         {/* pass that color into card list props */}
         <form onSubmit={submitHandler}>
-            <ColorDropdown onChange={(e) => setColorState(e.target.value)}>
+            <ColorDropdown value={color} onChange={(e) => setColor(e.target.value)}>
                 <option value="W"> White </option>
                 <option value="U"> Blue </option>
                 <option value="B"> Black </option>

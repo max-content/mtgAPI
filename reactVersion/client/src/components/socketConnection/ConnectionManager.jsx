@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react'
 import { socket } from '../../socket';
 import {Button } from '../og/styles/ButtonStyle';
 
