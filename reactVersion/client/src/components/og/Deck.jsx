@@ -27,24 +27,3 @@ const Deck = ({deck}) => {
 }
 
 export default Deck;
-
-//goes on line 14
-//     const SCRYFALL_CREATURE = `https://api.scryfall.com/cards/random?q=t%3Acreature+id<%3D${color}`
-//     // const color = props.ColorDeck;
-//     console.log(SCRYFALL_CREATURE)
-
-// useEffect(() => {
-//     async function fetchCards() {
-//         console.log('I AM HERE')
-//         const tempArr = [];
-//         const cardNum = 5;
-//         for(let i = 0; i < cardNum; i++) {
-//             const res = await axios.get(`${SCRYFALL_CREATURE}`)
-//             console.log(res.data)
-//             tempArr.push(res.data);
-//         }
-
-//         setCreatureDeck(tempArr);
-//     }
-//         fetchCards();
-// }, []);

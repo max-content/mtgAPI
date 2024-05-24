@@ -12,12 +12,19 @@ const DeckGenButton = ({color, setCreatureDeck}) => {
             console.log('I AM HERE')
             const tempArr = [];
             const cardNum = 5;
-            for(let i = 0; i < cardNum; i++) {
+            while(tempArr.length < cardNum) {
+
                 try {
                     const res = await axios.get(`${SCRYFALL_CREATURE}${color}`)
-                    console.log({SCRYFALL_CREATURE},{color})
+                    
+                    // console.log({SCRYFALL_CREATURE},{color})
+
                     console.log(res.data)
-                    tempArr.push(res.data);
+
+                    //only push to the array of cards if the image_uris and the image_uris.art_crop are valid. if not keep going.
+                    if (res.data.image_uris && res.data.image_uris.art_crop) {
+                        tempArr.push(res.data);
+                    }
                 } catch (error) {
                     console.log(error);
                 }
