@@ -6,6 +6,8 @@ const DeckGenButton = ({color, setCreatureDeck}) => {
 
     const SCRYFALL_CREATURE = `https://api.scryfall.com/cards/random?q=t%3Acreature+id<%3D`
 
+
+    //gererates a 5 card creature deck of a single color
     const createCreatureDeck = async () => {
             console.log('I AM HERE')
             const tempArr = [];

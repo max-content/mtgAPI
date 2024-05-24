@@ -4,8 +4,8 @@ import {
   Route
 } from 'react-router-dom';
 
-import {socket} from './socket';
-import { ConnectionManager, ConnectionState, Events } from './components/socketConnection';
+// import {socket} from './socket';
+// import { ConnectionManager, ConnectionState, Events } from './components/socketConnection';
 
 import Game from './components/Game';
 // import Deck from './components/Deck';
@@ -15,39 +15,39 @@ import ColorDeck from './components/og/ColorDeck';
 
 function App() {
 // ============Sockets============
-const [isConnected, setIsConnected] = useState(socket.connected);
-const [gameEvents, setGameEvents] = useState([]);
+// const [isConnected, setIsConnected] = useState(socket.connected);
+// const [gameEvents, setGameEvents] = useState([]);
 
 
-useEffect(() => {
-  const onConnect = () => {
-    setIsConnected(true);
-  }
+// useEffect(() => {
+//   const onConnect = () => {
+//     setIsConnected(true);
+//   }
 
-  const onDisconnect = () => {
-    setIsConnected(false);
-  }
+//   const onDisconnect = () => {
+//     setIsConnected(false);
+//   }
 
-  const onGameEvents = (value) => {
-    setGameEvents(previous => [...previous, value]);
-  }
+//   const onGameEvents = (value) => {
+//     setGameEvents(previous => [...previous, value]);
+//   }
 
-  socket.on('connect', onConnect);
-  socket.on('disconnect', onDisconnect);
-  socket.on('game', gameEvents);
+//   socket.on('connect', onConnect);
+//   socket.on('disconnect', onDisconnect);
+//   socket.on('game', gameEvents);
 
-  return () => {
-    socket.off('connect', onConnect);
-    socket.off('disconnect', onDisconnect);
-    socket.off('game', onGameEvents);
-  };
+//   return () => {
+//     socket.off('connect', onConnect);
+//     socket.off('disconnect', onDisconnect);
+//     socket.off('game', onGameEvents);
+//   };
 
-}, [gameEvents]);
+// }, [gameEvents]);
 
 
   return (
     <div>
-      <ConnectionState isConnected={ isConnected } />
+      {/* <ConnectionState isConnected={ isConnected } /> */}
       <Routes>
         {/* <Route path="/" element={ <Game gameEvents={gameEvents}/>} /> */}
 
@@ -56,7 +56,7 @@ useEffect(() => {
         <Route path='/' element={<Game />} />
 
       </Routes>
-      <ConnectionManager />
+      {/* <ConnectionManager /> */}
 
     </div>
   );
