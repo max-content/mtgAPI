@@ -20,8 +20,6 @@
   "devDependencies": {
     "nodemon": "^2.0.22"
   },
-  "homepage" : "https://max-content.github.io/mtgAPI/",
-  "predeploy": "npm run build", 
-  "deploy": "gh-pages -d build"
+  "homepage" : "https://max-content.github.io/mtgAPI/"
 
 }
