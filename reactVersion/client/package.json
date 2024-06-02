@@ -1,6 +1,6 @@
 {
   "name": "new_client",
-  "homepage": "https://max-content.github.io/mtgAPI",
+  "homepage": "https://max-content.github.io/mtgAPI/reactVersion/client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
