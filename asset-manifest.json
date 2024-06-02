@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mtgAPI/client/static/css/main.cc0d33f6.css",
-    "main.js": "/mtgAPI/client/static/js/main.2f608090.js",
-    "static/js/787.8cde08db.chunk.js": "/mtgAPI/client/static/js/787.8cde08db.chunk.js",
-    "index.html": "/mtgAPI/client/index.html",
-    "main.cc0d33f6.css.map": "/mtgAPI/client/static/css/main.cc0d33f6.css.map",
-    "main.2f608090.js.map": "/mtgAPI/client/static/js/main.2f608090.js.map",
-    "787.8cde08db.chunk.js.map": "/mtgAPI/client/static/js/787.8cde08db.chunk.js.map"
+    "main.css": "/mtgAPI/static/css/main.cc0d33f6.css",
+    "main.js": "/mtgAPI/static/js/main.84b7224d.js",
+    "static/js/787.8cde08db.chunk.js": "/mtgAPI/static/js/787.8cde08db.chunk.js",
+    "index.html": "/mtgAPI/index.html",
+    "main.cc0d33f6.css.map": "/mtgAPI/static/css/main.cc0d33f6.css.map",
+    "main.84b7224d.js.map": "/mtgAPI/static/js/main.84b7224d.js.map",
+    "787.8cde08db.chunk.js.map": "/mtgAPI/static/js/787.8cde08db.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cc0d33f6.css",
-    "static/js/main.2f608090.js"
+    "static/js/main.84b7224d.js"
   ]
 }
