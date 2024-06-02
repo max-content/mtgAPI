@@ -12,7 +12,7 @@ function App() {
     <div>
 
       <Routes>
-        <Route path='/' element={<Game />} />
+        <Route path='/disharmony' element={<Game />} />
       </Routes>
 
     </div>
